@@ -7,7 +7,6 @@ const UserController = require("./Controllers/UserController");
  */
 
 routes.get("/", (req, res) => {
-  console.log("Bateu aqui a requisição get");
   return res.status(200).json({ message: "OK" });
 });
 routes.post("/create", UserController.create);

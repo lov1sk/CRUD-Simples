@@ -18,28 +18,20 @@ class UserController {
     return res.status(200).json(showUsers);
   }
   async showOne(req, res) {
-    try {
-      const { id } = req.params;
-      const showUser = await UserModel.findById(id);
-      if (!showUser) {
-        return res.status(500).json({ message: "Verifique o Id inserido" });
-      }
-      return res.status(200).json(showUser);
-    } catch (error) {
-      console.log(error);
+    const { id } = req.params;
+    const showUser = await UserModel.findById(id);
+    if (!showUser) {
+      return res.status(500).json({ message: "Verifique o Id inserido" });
     }
+    return res.status(200).json(showUser);
   }
   async update(req, res) {
-    try {
-      const { id } = req.params;
-      const updatedUser = await UserModel.findByIdAndUpdate(id, req.body);
-      if (!updatedUser) {
-        return res.status(500).json({ message: "Verifique o Id inserido" });
-      }
-      return res.status(200).json(updatedUser);
-    } catch (error) {
-      console.log(error);
+    const { id } = req.params;
+    const updatedUser = await UserModel.findByIdAndUpdate(id, req.body);
+    if (!updatedUser) {
+      return res.status(500).json({ message: "Verifique o Id inserido" });
     }
+    return res.status(200).json(updatedUser);
   }
   async delete(req, res) {
     const { id } = req.params;
